@@ -1,0 +1,74 @@
+#
+# Configuration File
+#
+
+# Information for compile
+exclude: ["Gemfile", "README.md"]
+
+# Sass configuration
+sass:
+  sass_dir: _scss
+
+# Information for deploy
+baseurl: ""
+
+# the base hostname & protocol for your site
+url: "http://docs.xibbon.com"
+
+####################################
+######   Optional Features    ######
+####################################
+smooth-scroll: false
+
+####################################
+###########   Plugins    ###########
+####################################
+plugins:
+  - jekyll-archives
+  - jekyll-redirect-from
+  - jekyll-feed
+
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layout: "archive"
+  permalinks:
+    category: "/category/:name/"
+    tag: "/tag/:name/"
+
+#######################################################
+#######################################################
+###############   HEADER INFORMATIONS   ###############
+#######################################################
+#######################################################
+
+# This is your site title
+title: Xibbon - La Terminal Documentation
+# Website language
+lang: en-US
+# Header Title
+header-title: <strong>La Terminal</strong>
+# Header Tagline
+headter-tagline: Welcome to
+
+# Offer Banner Link
+=banner-link: https://apps.apple.com/us/app/la-terminal/id1629902861
+
+####################################
+######  Global Social Links   ######
+####################################
+youtube: "#"
+pinterest: "#"
+facebook: "#"
+twitter: "https://twitter.com/xibbonhq"
+google-plus: "#"
+vimeo: "#"
+
+#####################################
+#############   Footer   ############
+#####################################
+footer-description: 
+footer-copyright-text: Xibbon, Inc.
+footer-copyright-url: https://xibbon.com
+footer-copyright-year: 2022

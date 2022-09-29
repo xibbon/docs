@@ -1,0 +1,25 @@
+<!-- Categories Widget -->
+<div class="widget categories-widget">
+
+  <!-- Widget Header -->
+  <header class="widget-header">
+    <h4 class="widget-title">La Terminal</h4>
+  </header>
+
+  <!-- Widget Content -->
+  <div class="widget-content">
+    <ul class="categories-box">
+      {% assign page_list = site.pages %}
+          {% for p in page_list %}
+            {% if p.dir == page.dir %}
+            <li><a href="{{ p.url }}">{{ p.title }}</a></li>
+            {% endif %}
+          {% endfor %}
+      {% assign page_list = nil %}
+      </ul>
+
+
+
+  </div>
+
+</div>

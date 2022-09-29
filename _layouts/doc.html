@@ -1,0 +1,44 @@
+<!DOCTYPE html >
+<html lang="{{ site.lang }}">
+
+  {% include head.html %}
+
+  <body>
+
+    {% include header-doc.html %}
+
+    <!-- Page Section -->
+    <section class="site-section blog-section page-layout" id="start">
+      <div class="container">
+
+        <!-- Page Layout -->
+        <div class="row">
+
+          <!-- Content -->
+          <div class="col-md-8 blog-articles-container">
+            <h1>{{ page.title }}<a class="doc-edit" href="https://github.com/xibbon/docs{{ page.dir }}{{ page.name }}"><img src="{{ site.baseurl }}/images/pencil.svg"
+              alt="Edit">Improve this doc</a></h1>
+            <hr class="small">
+            {{ content }}
+
+          </div>
+          
+          <!-- Sidebar -->
+          <div class="col-md-4 hidden-xs hidden-sm">
+
+            {% include doc-sidebar.html %}
+
+          </div>
+          
+        </div>
+
+      </div>
+    </section>
+
+    {% include footer.html %}
+
+    {% include scripts.html %}
+
+  </body>
+
+</html>
