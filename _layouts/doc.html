@@ -16,8 +16,10 @@
 
           <!-- Content -->
           <div class="col-md-8 blog-articles-container">
-            <h1>{{ page.title }}<a class="doc-edit" href="https://github.com/xibbon/docs{{ page.dir }}{{ page.name }}"><img src="{{ site.baseurl }}/images/pencil.svg"
-              alt="Edit">Improve this doc</a></h1>
+            <h1>{{ page.title }}
+              <a class="doc-edit" href="https://github.com/xibbon/docs/blob/main{{ page.dir }}{{ page.name }}">
+                <img src="{{ site.baseurl }}/images/pencil.svg" alt="Edit">Improve this doc</a>
+            </h1>
             <hr class="small">
             {{ content }}
 
