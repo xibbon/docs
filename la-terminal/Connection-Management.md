@@ -2,26 +2,37 @@
 layout: doc
 title:  "Connection Management"
 ---
+# La Terminal: Session Restoration
+Both iOS and iPadOS are designed to preserve battery and reduce memory usage, which is fine for many use cases, but can be problematic for terminal emulators that are used for long-running sessions with remote hosts.   The problem is that iOS/iPadOS will terminate network connections shortly after a user switches to a different application.
 
-To minimize battery consumption, iOS and iPadOS generally prevent applications from running in the background and give them a small amount of time to remain active when the application is not visible.
+To address this problem, La Terminal offers a number of options for users that want to perform long running operations, and you can choose one based on your specific needs.
 
-This poses a problem for users of terminal applications that context switch among different applications and could be frustrating to users.   La Terminal offers a couple of options to this problem: keeping the application alive via geo-location updates, or using terminal restoring capabilities using tmux.
-
-The current version of La Terminal (anything available after April 11th, 2023) has a small band-aid that will keep connections alive for 30 seconds without using location tracking - this is as much as iOS will give us by default.
-
-# Keeping La Terminal running with geo-location updates
-
-iOS and iPadOS will keep an application running in the background if the application is receiving location notifications.   To use this feature, go to “Settings” and turn on the “Track Location” feature.    When you have connections established to a remote system, La Terminal will continue executing without terminating your connections.
-
-The downside of this approach is that it shows a blue icon indicating that your location is being tracked and might consume more battery by keeping the application alive.
-
-La Terminal does not upload, sell or publish this information, it all stays in your device.
+**Native:** The default session preserving technique is called “native” and it works by running a small helper on your remote host that can re-establish your session transparently if the session is disconnected.   
 
 
-# Restoring a session using Tmux
+    **Pros:** This option is great because it means that all the advanced terminal emulation capabilities of La Terminal continue to work and they are dumbed down at all. 
 
-If the remote host you are connecting supports the `tmux` command, SwiftTerm can use tmux on first launch, and will reconnect automatically after it restarts to it.
 
-For an optimal experience, it is best to have your host fully configured with a key that has its password already stored, to avoid entering your password every time you reconnect.
+    **Cons:** if the operating system terminates “La Terminal” due to low-memory availability, your long running session will be terminate.
 
-The downside of this approach is that you need `tmux` installed on the remote server, and that the `tmux` hot-key (typically control-b) is taken over by tmux, which can interfere for some users that might want to use that key for other purposes.
+**Tmux:** With this option, La Terminal relies on the `tmux` command on your server to keep your session alive. 
+
+
+    **Pros:** sessions survive across La Terminal being killed, or even your device rebooting.  Some users also enjoy the additional session management capabilities of `tmux`.
+
+
+    **Cons:** the terminal emulation provided is the subset that tmux provides, and certain keystroke combinations are captured for `tmux` for management purposes, as well as the bottom of your screen contains some status information from tmux.
+
+**None:** in this mode of operation, your connection will be terminated at the operating system discretion and the contents of your session will be lost.   
+
+
+    If you have enabled location tracking, La Terminal will be kept alive even if it is send to the background, and your session will be preserved.
+
+
+        **Pros:** your session will continue to run, even if your application is in the background, and has no dependencies on any server software.
+
+
+        **Cons:** will consume additional energy from the battery.
+
+
+
