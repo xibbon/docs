@@ -7,7 +7,7 @@ La Terminal is an SSH client for iOS and iPadOS, and you can use it to connect t
 
 # Creating a Host
 
-To use SwiftTerm, you start by defining a host that you want to connect to.   This is done by selecting "Hosts" from the launch screen, and then selecting "Add Host".   
+To use La Terminal, you start by defining a host that you want to connect to.   This is done by selecting "Hosts" from the launch screen, and then selecting "Add Host".   
 
 <img width="564" alt="image" src="https://user-images.githubusercontent.com/36863/160483727-90e42faa-28f7-4773-af3a-b914004c3c8e.png">
 
@@ -23,7 +23,7 @@ For every new host, La Terminal will show you a fingerprint for the remote host 
 
 # Adding SSH keys
 
-To use SSH keys with SwiftTerm, you need to bring the private SSH component into your SSH keys.
+To use SSH keys with La Terminal, you need to bring the private SSH component into your SSH keys.
 
 Here are the options under "Keys":
 
